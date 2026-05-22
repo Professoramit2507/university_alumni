@@ -1,5 +1,4 @@
 import { useState } from "react";
-import faqImg from "../../..//public/tiny-business-people-with-giant-faq-letters-gadget-users-searching-instructions-useful-information-flat-vector-illustration-customer-support-solution-concept-banner-landing-web-page_74855-23409.avif"; // your image
 
 const faqs = [
   {
@@ -33,45 +32,39 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-[#0f172a] text-white py-20">
-      <div className="max-w-7xl mx-auto px-6 grid  md:grid-cols-2 gap-12 items-center">
-        {/* LEFT: FAQ */}
-        <div>
-          <h2 className="text-3xl font-bold mb-10">
-            Frequently Asked Questions
-          </h2>
+    <section className="bg-[#0f172a] text-white py-20 flex items-center justify-center min-h-screen">
+      {/* max-w-3xl ব্যবহার করে কন্টেন্ট চওড়া কমানো হয়েছে এবং mx-auto দিয়ে সেন্টারে আনা হয়েছে */}
+      <div className="w-full max-w-3xl mx-auto px-6 text-center">
+        
+        {/* হেডিংটিকে সেন্টারে রাখা হয়েছে */}
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 tracking-tight">
+          Frequently Asked Questions
+        </h2>
 
+        {/* FAQ আইটেমগুলোর টেক্সট অ্যালাইনমেন্ট বামে (text-left) রাখা হয়েছে পড়ার সুবিধার জন্য */}
+        <div className="text-left space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-gray-700 rounded-xl mb-4 p-4 cursor-pointer hover:border-sky-400 transition"
+              className="border border-gray-700 rounded-xl p-5 cursor-pointer hover:border-sky-400 bg-slate-900/50 transition-all duration-300"
               onClick={() => toggleFAQ(index)}
             >
-              <h3 className="text-lg font-semibold flex justify-between">
-                {faq.question}
-                <span className="text-sky-400">
+              <h3 className="text-base md:text-lg font-semibold flex justify-between items-center gap-4 select-none">
+                <span>{faq.question}</span>
+                <span className="text-sky-400 text-xl font-bold shrink-0">
                   {openIndex === index ? "−" : "+"}
                 </span>
               </h3>
 
               {openIndex === index && (
-                <p className="mt-3 text-gray-400">{faq.answer}</p>
+                <p className="mt-3 text-gray-400 text-sm md:text-base leading-relaxed transition-all">
+                  {faq.answer}
+                </p>
               )}
             </div>
           ))}
         </div>
-
-        {/* RIGHT: IMAGE */}
-        <div className="flex justify-center order-1 md:order-2 relative">
-          <img
-            src={faqImg}
-            alt="FAQ Illustration"
-            className="w-full max-w-md md:max-w-lg lg:max-w-xl rounded-xl shadow-2xl"
-          />
-
-          {/* Glow */}
-          <div className="absolute w-72 h-72 bg-sky-500/20 blur-3xl rounded-full -z-10"></div>
-        </div>
+        
       </div>
     </section>
   );

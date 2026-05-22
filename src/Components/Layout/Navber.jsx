@@ -23,6 +23,10 @@ export default function Navbar() {
           <Link to={"/alumni-directory"} className="hover:text-sky-400 transition">
             🎓 Alumni Directory
           </Link>
+          {/* নতুন যুক্ত করা মেনু */}
+          <Link to={"/success-stories"} className="hover:text-sky-400 transition">
+            🚀 Success Stories
+          </Link>
           <Link to={"/events"} className="hover:text-sky-400 transition">
             📢 Events / Notice
           </Link>
@@ -46,7 +50,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
+          <button onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
             {isOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
@@ -55,16 +59,20 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-slate-800 px-4 pb-4 space-y-3">
-          <Link to={"/"} className="block hover:text-sky-400">
+          <Link to={"/"} className="block hover:text-sky-400" onClick={() => setIsOpen(false)}>
             🏠 Home
           </Link>
-          <Link to={"/alumni-directory"} className="block hover:text-sky-400">
+          <Link to={"/alumni-directory"} className="block hover:text-sky-400" onClick={() => setIsOpen(false)}>
             🎓 Alumni Directory
           </Link>
-          <Link to={"/events"} className="block hover:text-sky-400">
+          {/* মোবাইলের জন্য নতুন মেনু */}
+          <Link to={"/success-stories"} className="block hover:text-sky-400" onClick={() => setIsOpen(false)}>
+            🚀 Success Stories
+          </Link>
+          <Link to={"/events"} className="block hover:text-sky-400" onClick={() => setIsOpen(false)}>
             📢 Events / Notice
           </Link>
-          <Link to={"/about"} className="block hover:text-sky-400">
+          <Link to={"/about"} className="block hover:text-sky-400" onClick={() => setIsOpen(false)}>
             ℹ️ About
           </Link>
 
@@ -73,12 +81,14 @@ export default function Navbar() {
           <Link
             to={"/login"}
             className="block border border-sky-400 px-3 py-1 rounded-md text-center"
+            onClick={() => setIsOpen(false)}
           >
             🔐 Login
           </Link>
           <Link
             to={"/register"}
             className="block bg-sky-400 text-black px-3 py-1 rounded-md text-center"
+            onClick={() => setIsOpen(false)}
           >
             📝 Register
           </Link>

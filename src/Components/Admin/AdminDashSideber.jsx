@@ -4,21 +4,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
   X,
-  ShieldCheck, // Admin Dashboard আইকন
-  Users,       // Users আইকন
-  Calendar,    // Events আইকন
-  Coins,       // Funds আইকন
-  Settings,    // Settings আইকন
+  ShieldCheck, 
+  Users,       
+  Calendar,    
+  Coins,       
   LogOut,
 } from "lucide-react";
 
 const AdminDashSideber = () => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false); // মোবাইলে সাইডবার ওপেন/ক্লোজ স্টেট
-
+  const [isOpen, setIsOpen] = useState(false); 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
-  // সাইডবারের ভেতরের মূল কন্টেন্ট (ডেস্কটপ ও মোবাইল উভয়ের জন্য কমন)
+  
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
       {/* Logo & Admin Badge Section */}
@@ -37,7 +35,7 @@ const AdminDashSideber = () => {
           </span>
         </div>
 
-        {/* মোবাইল স্ক্রিনে ক্লোজ বাটন */}
+        
         <button
           onClick={toggleSidebar}
           className="lg:hidden text-gray-400 hover:text-white cursor-pointer"
@@ -52,13 +50,6 @@ const AdminDashSideber = () => {
           <SidebarItem
             to="/"
             label="Home"
-            icon={<ShieldCheck size={18} />}
-            end={true}
-            onClick={() => setIsOpen(false)}
-          />
-          <SidebarItem
-            to="/admin"
-            label="Admin Dashboard"
             icon={<ShieldCheck size={18} />}
             end={true}
             onClick={() => setIsOpen(false)}
@@ -107,7 +98,7 @@ const AdminDashSideber = () => {
 
   return (
     <>
-      {/* ১. মোবাইল হেডার বাটন (শুধুমাত্র lg স্ক্রিনের নিচে দেখা যাবে) */}
+      
       <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-[#0A1F22] text-white flex items-center px-6 justify-between z-40 shadow-md">
         <div className="flex items-center gap-2">
           <div className="h-6 w-6 bg-[#B08D48] rounded flex items-center justify-center">
@@ -125,16 +116,16 @@ const AdminDashSideber = () => {
         </button>
       </div>
 
-      {/* ২. ডেস্কটপ সাইডবার (lg বা বড় স্ক্রিনে ফিক্সড থাকবে, ছোট স্ক্রিনে হাইড হবে) */}
+     
       <div className="hidden lg:flex w-72 bg-[#0A1F22] text-white p-6 flex-col fixed h-screen z-50 border-r border-white/5">
         <SidebarContent />
       </div>
 
-      {/* ৩. মোবাইল ড্রয়ার ও ওভারলে (AnimatePresence দিয়ে স্মুথ স্লাইড অ্যানিমেশন) */}
+      
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* ডার্ক ব্যাকগ্রাউন্ড ওভারলে */}
+            
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -143,7 +134,7 @@ const AdminDashSideber = () => {
               className="lg:hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm"
             />
 
-            {/* মোবাইল স্লাইডার সাইডবার */}
+           
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
@@ -160,7 +151,7 @@ const AdminDashSideber = () => {
   );
 };
 
-// সাইডবার লিংক আইটেম (আইকন সাপোর্ট সহ)
+
 const SidebarItem = ({ to, label, end, icon, onClick }) => (
   <li>
     <NavLink

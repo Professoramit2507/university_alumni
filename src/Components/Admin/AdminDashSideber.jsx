@@ -4,19 +4,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
   X,
-  ShieldCheck, 
-  Users,       
-  Calendar,    
-  Coins,       
+  ShieldCheck,
+  Users,
+  Calendar,
+  Coins,
   LogOut,
 } from "lucide-react";
 
 const AdminDashSideber = () => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false); 
+  const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => setIsOpen(!isOpen);
 
-  
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
       {/* Logo & Admin Badge Section */}
@@ -35,7 +34,6 @@ const AdminDashSideber = () => {
           </span>
         </div>
 
-        
         <button
           onClick={toggleSidebar}
           className="lg:hidden text-gray-400 hover:text-white cursor-pointer"
@@ -98,7 +96,6 @@ const AdminDashSideber = () => {
 
   return (
     <>
-      
       <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-[#0A1F22] text-white flex items-center px-6 justify-between z-40 shadow-md">
         <div className="flex items-center gap-2">
           <div className="h-6 w-6 bg-[#B08D48] rounded flex items-center justify-center">
@@ -116,16 +113,13 @@ const AdminDashSideber = () => {
         </button>
       </div>
 
-     
       <div className="hidden lg:flex w-72 bg-[#0A1F22] text-white p-6 flex-col fixed h-screen z-50 border-r border-white/5">
         <SidebarContent />
       </div>
 
-      
       <AnimatePresence>
         {isOpen && (
           <>
-            
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -134,7 +128,6 @@ const AdminDashSideber = () => {
               className="lg:hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm"
             />
 
-           
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
@@ -150,7 +143,6 @@ const AdminDashSideber = () => {
     </>
   );
 };
-
 
 const SidebarItem = ({ to, label, end, icon, onClick }) => (
   <li>

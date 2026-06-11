@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiSearch, FiFilter,  FiLinkedin } from "react-icons/fi";
 import { FaBuilding, FaGraduationCap } from "react-icons/fa6";
 
-// 🆕 প্রতিটি অবজেক্টে 'img' ফিল্ড যুক্ত করা হয়েছে
+
 const alumniData = [
   { 
     name: "Rahim Ahmed", 
